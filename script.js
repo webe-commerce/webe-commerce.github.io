@@ -446,6 +446,46 @@ function displayProducts(categoryFilter = 'all', platformFilter = 'all') {
 // Initialize products display
 displayProducts();
 
+// ===== Best Sellers Display =====
+const bestSellersGrid = document.getElementById('bestSellersGrid');
+const totalProductCountEl = document.getElementById('totalProductCount');
+
+function displayBestSellers() {
+    // Get best selling products (based on badge "ขายดี", rating, and reviews)
+    const bestSellers = productsData
+        .filter(product => product.badge === 'ขายดี' || product.rating >= 4.7)
+        .sort((a, b) => {
+            // Sort by: 1) badge "ขายดี", 2) rating, 3) reviews
+            if (a.badge === 'ขายดี' && b.badge !== 'ขายดี') return -1;
+            if (a.badge !== 'ขายดี' && b.badge === 'ขายดี') return 1;
+            if (b.rating !== a.rating) return b.rating - a.rating;
+            return b.reviews - a.reviews;
+        })
+        .slice(0, 6); // Show top 6 products
+    
+    bestSellersGrid.innerHTML = bestSellers.map(product => createProductCard(product)).join('');
+    
+    // Update total product count
+    if (totalProductCountEl) {
+        totalProductCountEl.textContent = `(${productsData.length} รายการ)`;
+    }
+    
+    // Add special animation to best sellers
+    const cards = bestSellersGrid.querySelectorAll('.product-card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100 + 200);
+    });
+}
+
+// Initialize best sellers
+displayBestSellers();
+
 // ===== Generate Structured Data (JSON-LD) for SEO =====
 function generateProductStructuredData() {
     const structuredData = {
