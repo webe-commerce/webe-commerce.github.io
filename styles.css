@@ -362,12 +362,121 @@ section {
 }
 
 /* ===== Products Section ===== */
+/* Breadcrumb Navigation */
+.breadcrumb {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+.breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: "›";
+    margin-left: 0.5rem;
+    color: var(--text-light);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+.breadcrumb li:last-child {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.platform-filter,
+.category-filter {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.platform-filter h3,
+.category-filter h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.platform-filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.platform-filter-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--border-color);
+    background: var(--bg-white);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.platform-filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.platform-filter-btn.active {
+    color: white;
+}
+
+.platform-filter-btn.active:not(.shopee):not(.lazada):not(.tiktok) {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.platform-filter-btn.shopee.active {
+    background: linear-gradient(135deg, #EE4D2D 0%, #ff6b4a 100%);
+    border-color: #EE4D2D;
+}
+
+.platform-filter-btn.lazada.active {
+    background: linear-gradient(135deg, #0F156D 0%, #1a237e 100%);
+    border-color: #0F156D;
+}
+
+.platform-filter-btn.tiktok.active {
+    background: linear-gradient(135deg, #000000 0%, #fe2c55 50%, #00f2ea 100%);
+    border-color: #000000;
+}
+
 .filter-buttons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 3rem;
 }
 
 .filter-btn {
@@ -437,6 +546,39 @@ section {
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 600;
+}
+
+.platform-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    color: white;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.platform-badge:hover {
+    transform: scale(1.1);
+}
+
+.platform-badge.shopee {
+    background: linear-gradient(135deg, #EE4D2D 0%, #ff6b4a 100%);
+}
+
+.platform-badge.lazada {
+    background: linear-gradient(135deg, #0F156D 0%, #1a237e 100%);
+}
+
+.platform-badge.tiktok {
+    background: linear-gradient(135deg, #000000 0%, #fe2c55 50%, #00f2ea 100%);
 }
 
 .product-content {
@@ -760,6 +902,20 @@ section {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.7);
+}
+
+.affiliate-disclosure {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.affiliate-disclosure i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
 }
 
 /* ===== Scroll to Top Button ===== */

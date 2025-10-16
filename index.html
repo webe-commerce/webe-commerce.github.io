@@ -3,12 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="แนะนำสินค้าและบริการคุณภาพดี ราคาพิเศษ">
-    <meta name="keywords" content="affiliate, สินค้า, แนะนำสินค้า, ช้อปปิ้ง">
-    <title>WeBeCommerce - แนะนำสินค้าและบริการคุณภาพ</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>WeBeCommerce - แนะนำสินค้าคุณภาพจาก Shopee Lazada TikTok | รีวิวสินค้า ราคาดี</title>
+    <meta name="title" content="WeBeCommerce - แนะนำสินค้าคุณภาพจาก Shopee Lazada TikTok">
+    <meta name="description" content="แนะนำสินค้าคุณภาพ รีวิวจริง จาก Shopee, Lazada, TikTok Shop | อิเล็กทรอนิกส์ แฟชั่น ความงาม บ้านและสวน ของใช้ กีฬา หนังสือ ราคาดีที่สุด โปรโมชั่นพิเศษ ส่งฟรี">
+    <meta name="keywords" content="ช้อปปิ้งออนไลน์, รีวิวสินค้า, Shopee Thailand, Lazada Thailand, TikTok Shop, แนะนำสินค้า, สินค้าราคาถูก, iPhone, Samsung, แฟชั่น, เครื่องสำอาง, ของใช้ในบ้าน, อุปกรณ์กีฬา, หนังสือ, คอร์สออนไลน์, โปรโมชั่น, ส่งฟรี, ของแท้, affiliate marketing, สินค้าขายดี, สินค้าแนะนำ">
+    <meta name="author" content="WeBeCommerce">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://webe-commerce.github.io/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webe-commerce.github.io/">
+    <meta property="og:title" content="WeBeCommerce - แนะนำสินค้าคุณภาพจาก Shopee Lazada TikTok">
+    <meta property="og:description" content="แนะนำสินค้าคุณภาพ รีวิวจริง จาก Shopee, Lazada, TikTok Shop | อิเล็กทรอนิกส์ แฟชั่น ความงาม ของใช้ ราคาดีที่สุด">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop">
+    <meta property="og:locale" content="th_TH">
+    <meta property="og:site_name" content="WeBeCommerce">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://webe-commerce.github.io/">
+    <meta property="twitter:title" content="WeBeCommerce - แนะนำสินค้าคุณภาพจาก Shopee Lazada TikTok">
+    <meta property="twitter:description" content="แนะนำสินค้าคุณภาพ รีวิวจริง จาก Shopee, Lazada, TikTok Shop | อิเล็กทรอนิกส์ แฟชั่น ความงาม">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WeBeCommerce",
+      "url": "https://webe-commerce.github.io/",
+      "logo": "https://webe-commerce.github.io/logo.png",
+      "description": "แนะนำสินค้าคุณภาพจาก Shopee, Lazada, TikTok Shop",
+      "sameAs": [
+        "https://www.facebook.com/webecommerce",
+        "https://www.instagram.com/webecommerce",
+        "https://twitter.com/webecommerce"
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WeBeCommerce",
+      "url": "https://webe-commerce.github.io/",
+      "description": "แนะนำสินค้าคุณภาพจาก Shopee, Lazada, TikTok Shop",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://webe-commerce.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-XXXXXXXXXX', {
+        'page_title': 'WeBeCommerce',
+        'page_path': window.location.pathname
+      });
+      
+      // Track affiliate link clicks
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.product-btn').forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            var productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+            var platform = this.closest('.product-card').getAttribute('data-platform');
+            
+            gtag('event', 'affiliate_click', {
+              'event_category': 'Affiliate',
+              'event_label': productTitle,
+              'platform': platform,
+              'value': 1
+            });
+          });
+        });
+        
+        // Track filter usage
+        document.querySelectorAll('.filter-btn, .platform-filter-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var filterType = this.classList.contains('filter-btn') ? 'category' : 'platform';
+            var filterValue = this.getAttribute('data-filter') || this.getAttribute('data-platform');
+            
+            gtag('event', 'filter_use', {
+              'event_category': 'Engagement',
+              'event_label': filterType + ': ' + filterValue
+            });
+          });
+        });
+      });
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -110,20 +213,58 @@
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="/">
+                            <span itemprop="name">หน้าแรก</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name">สินค้าทั้งหมด</span>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ol>
+            </nav>
+            
             <div class="section-header">
-                <h2 class="section-title">สินค้าแนะนำ</h2>
-                <p class="section-subtitle">สินค้าคุณภาพที่คัดสรรมาเพื่อคุณโดยเฉพาะ</p>
+                <h2 class="section-title">สินค้าแนะนำ Shopee Lazada TikTok</h2>
+                <p class="section-subtitle">รีวิวสินค้าคุณภาพ ราคาดี โปรโมชั่นพิเศษ คัดสรรมาเพื่อคุณโดยเฉพาะ</p>
             </div>
             
-            <!-- Filter Buttons -->
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
-                <button class="filter-btn" data-filter="electronics">อิเล็กทรอนิกส์</button>
-                <button class="filter-btn" data-filter="fashion">แฟชั่น</button>
-                <button class="filter-btn" data-filter="home">บ้านและสวน</button>
-                <button class="filter-btn" data-filter="beauty">ความงาม</button>
-                <button class="filter-btn" data-filter="sports">กีฬา</button>
-                <button class="filter-btn" data-filter="books">หนังสือ</button>
+            <!-- Platform Filter Buttons -->
+            <div class="platform-filter">
+                <h3>กรองตามแพลตฟอร์ม:</h3>
+                <div class="platform-filter-buttons">
+                    <button class="platform-filter-btn active" data-platform="all">
+                        <i class="fas fa-store"></i> ทั้งหมด
+                    </button>
+                    <button class="platform-filter-btn shopee" data-platform="shopee">
+                        <i class="fab fa-shopify"></i> Shopee
+                    </button>
+                    <button class="platform-filter-btn lazada" data-platform="lazada">
+                        <i class="fas fa-shopping-cart"></i> Lazada
+                    </button>
+                    <button class="platform-filter-btn tiktok" data-platform="tiktok">
+                        <i class="fab fa-tiktok"></i> TikTok Shop
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="category-filter">
+                <h3>กรองตามหมวดหมู่:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                    <button class="filter-btn" data-filter="electronics">อิเล็กทรอนิกส์</button>
+                    <button class="filter-btn" data-filter="fashion">แฟชั่น</button>
+                    <button class="filter-btn" data-filter="home">บ้านและสวน</button>
+                    <button class="filter-btn" data-filter="beauty">ความงาม</button>
+                    <button class="filter-btn" data-filter="sports">กีฬา</button>
+                    <button class="filter-btn" data-filter="books">หนังสือ</button>
+                </div>
             </div>
 
             <!-- Products Grid -->
@@ -290,6 +431,12 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 WeBeCommerce. All rights reserved.</p>
+                <p class="affiliate-disclosure">
+                    <i class="fas fa-info-circle"></i> 
+                    การเปิดเผยข้อมูล: เว็บไซต์นี้ใช้ลิงก์พันธมิตร (Affiliate Links) 
+                    เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณซื้อสินค้าผ่านลิงก์ของเรา 
+                    โดยไม่มีค่าใช้จ่ายเพิ่มเติมสำหรับคุณ
+                </p>
             </div>
         </div>
     </footer>
