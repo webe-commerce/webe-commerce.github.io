@@ -334,7 +334,7 @@ function createProductCard(product) {
             <div class="product-image">
                 <img src="${product.image}" alt="${product.title}" loading="lazy">
                 ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
-                <span class="platform-badge ${product.platform}" title="ซื้อที่ ${platformInfo.name}">
+                <span class="platform-badge ${product.platform}" title="${platformInfo.name}">
                     ${platformInfo.icon}
                 </span>
             </div>
@@ -351,7 +351,7 @@ function createProductCard(product) {
                 <div class="product-footer">
                     <div class="product-price">${product.price}</div>
                     <a href="${product.affiliateLink}" target="_blank" rel="noopener noreferrer" class="product-btn">
-                        ซื้อที่ ${platformInfo.name} <i class="fas fa-external-link-alt"></i>
+                        <i class="fas fa-shopping-cart"></i> ซื้อเลย
                     </a>
                 </div>
             </div>
@@ -461,8 +461,7 @@ function generateProductStructuredData() {
                 "image": product.image,
                 "brand": {
                     "@type": "Brand",
-                    "name": product.platform === 'shopee' ? 'Shopee' : 
-                           product.platform === 'lazada' ? 'Lazada' : 'TikTok Shop'
+                    "name": "WeBeCommerce"
                 },
                 "offers": {
                     "@type": "Offer",
@@ -473,8 +472,7 @@ function generateProductStructuredData() {
                     "priceValidUntil": new Date(Date.now() + 30*24*60*60*1000).toISOString().split('T')[0],
                     "seller": {
                         "@type": "Organization",
-                        "name": product.platform === 'shopee' ? 'Shopee Thailand' : 
-                               product.platform === 'lazada' ? 'Lazada Thailand' : 'TikTok Shop Thailand'
+                        "name": "WeBeCommerce"
                     }
                 },
                 "aggregateRating": {
@@ -536,25 +534,9 @@ function updateSEOMetaTags(categoryFilter, platformFilter) {
     }
 }
 
-// ===== Platform Filter Functionality =====
-const platformFilterButtons = document.querySelectorAll('.platform-filter-btn');
-
-platformFilterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all platform buttons
-        platformFilterButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        // Get platform filter value and display products
-        currentPlatformFilter = button.getAttribute('data-platform');
-        displayProducts(currentCategoryFilter, currentPlatformFilter);
-        
-        // Update SEO meta tags
-        updateSEOMetaTags(currentCategoryFilter, currentPlatformFilter);
-    });
-});
+// ===== Platform Filter Functionality (Removed - Now category only) =====
+// Platform filters removed for cleaner e-commerce experience
+// Platform badges remain visible on product images only
 
 // ===== Category Filter Functionality =====
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -569,10 +551,10 @@ filterButtons.forEach(button => {
         
         // Get category filter value and display products
         currentCategoryFilter = button.getAttribute('data-filter');
-        displayProducts(currentCategoryFilter, currentPlatformFilter);
+        displayProducts(currentCategoryFilter, 'all'); // Always show all platforms
         
         // Update SEO meta tags
-        updateSEOMetaTags(currentCategoryFilter, currentPlatformFilter);
+        updateSEOMetaTags(currentCategoryFilter, 'all');
     });
 });
 
@@ -593,15 +575,6 @@ categoryCards.forEach(card => {
         
         // Filter products after scroll
         setTimeout(() => {
-            // Reset platform filter
-            platformFilterButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-platform') === 'all') {
-                    btn.classList.add('active');
-                }
-            });
-            currentPlatformFilter = 'all';
-            
             // Set category filter
             filterButtons.forEach(btn => {
                 btn.classList.remove('active');
@@ -645,6 +618,10 @@ scrollTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// ===== Platform-specific navigation removed =====
+// Website now focuses on general e-commerce experience
+// Platform badges remain visible on product images for transparency
 
 // ===== Intersection Observer for Animations =====
 const observerOptions = {

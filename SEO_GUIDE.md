@@ -397,17 +397,17 @@ iPhone 15 Pro Max เป็นสมาร์ทโฟนรุ่นท็อ�
 
 1. สมัคร [Google Analytics](https://analytics.google.com/)
 2. สร้าง property
-3. รับ Measurement ID (G-XEBRSDXT6B)
+3. รับ Measurement ID (G-XXXXXXXXXX)
 4. เพิ่มโค้ดใน `index.html`:
 
 ```html
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XEBRSDXT6B"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XEBRSDXT6B');
+  gtag('config', 'G-XXXXXXXXXX');
 </script>
 ```
 
