@@ -1,282 +1,35 @@
 // ===== Products Data with Affiliate Links =====
 // 🔥 วิธีการใช้งาน:
-// 1. แทนที่ affiliateLink ด้วยลิงก์ affiliate จริงของคุณจาก Shopee, Lazada, หรือ TikTok
-// 2. platform: "shopee" | "lazada" | "tiktok" - ระบุแพลตฟอร์มที่สินค้ามาจาก
-// 3. อัพเดท image, price, rating, reviews ให้ตรงกับสินค้าจริง
+// 1. แก้ไขไฟล์ products.json เพื่ือเพิ่ม/แก้ไข/ลบสินค้า
+// 2. แทนที่ affiliateLink ด้วยลิงก์ affiliate จริงของคุณจาก Shopee, Lazada, หรือ TikTok
+// 3. platform: "shopee" | "lazada" | "tiktok" - ระบุแพลตฟอร์มที่สินค้ามาจาก
+// 4. อัพเดท image, price, rating, reviews ให้ตรงกับสินค้าจริง
 
-const productsData = [
-    // ===== SHOPEE PRODUCTS =====
-    {
-        id: 1,
-        title: "iPhone 15 Pro Max 256GB",
-        description: "ไอโฟนรุ่นล่าสุด กล้อง 48MP ชิป A17 Pro จอ 6.7 นิ้ว",
-        price: "฿44,900",
-        category: "electronics",
-        image: "https://images.unsplash.com/photo-1695048064536-1c1cfe9eb443?w=500&h=500&fit=crop",
-        rating: 4.9,
-        reviews: 1250,
-        badge: "ขายดี",
-        platform: "shopee",
-        affiliateLink: "https://shope.ee/YOUR_AFFILIATE_LINK_HERE_1"
-    },
-    {
-        id: 2,
-        title: "AirPods Pro (2nd generation)",
-        description: "หูฟังไร้สาย Active Noise Cancellation คุณภาพเสียงระดับพรีเมียม",
-        price: "฿8,990",
-        category: "electronics",
-        image: "https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=500&h=500&fit=crop",
-        rating: 4.8,
-        reviews: 856,
-        badge: "แนะนำ",
-        platform: "shopee",
-        affiliateLink: "https://shope.ee/YOUR_AFFILIATE_LINK_HERE_2"
-    },
-    {
-        id: 3,
-        title: "เสื้อโปโลผู้ชาย UNIQLO",
-        description: "เสื้อโปโลคุณภาพดี ผ้า Dry-EX ระบายอากาศดี",
-        price: "฿590",
-        category: "fashion",
-        image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=500&h=500&fit=crop",
-        rating: 4.6,
-        reviews: 423,
-        badge: "",
-        platform: "shopee",
-        affiliateLink: "https://shope.ee/YOUR_AFFILIATE_LINK_HERE_3"
-    },
-    {
-        id: 4,
-        title: "รองเท้าผ้าใบ Nike Air Max",
-        description: "รองเท้ากีฬา น้ำหนักเบา ใส่สบาย เหมาะกับการวิ่งและออกกำลังกาย",
-        price: "฿3,890",
-        category: "fashion",
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop",
-        rating: 4.7,
-        reviews: 678,
-        badge: "ขายดี",
-        platform: "shopee",
-        affiliateLink: "https://shope.ee/YOUR_AFFILIATE_LINK_HERE_4"
-    },
+let productsData = [];
 
-    // ===== LAZADA PRODUCTS =====
-    {
-        id: 5,
-        title: "Samsung Galaxy S24 Ultra",
-        description: "สมาร์ทโฟนจอใหญ่ 6.8 นิ้ว กล้อง 200MP S Pen ในตัว",
-        price: "฿42,990",
-        category: "electronics",
-        image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=500&h=500&fit=crop",
-        rating: 4.8,
-        reviews: 923,
-        badge: "แนะนำ",
-        platform: "lazada",
-        affiliateLink: "https://www.lazada.co.th/YOUR_AFFILIATE_LINK_HERE_5"
-    },
-    {
-        id: 6,
-        title: "iPad Air M2 Chip 128GB",
-        description: "แท็บเล็ต Apple M2 จอ Liquid Retina 10.9 นิ้ว",
-        price: "฿24,900",
-        category: "electronics",
-        image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&h=500&fit=crop",
-        rating: 4.9,
-        reviews: 567,
-        badge: "แนะนำ",
-        platform: "lazada",
-        affiliateLink: "https://www.lazada.co.th/YOUR_AFFILIATE_LINK_HERE_6"
-    },
-    {
-        id: 7,
-        title: "เครื่องกรองอากาศ Xiaomi",
-        description: "กรองอากาศ PM2.5 ครอบคลุม 48 ตร.ม. เงียบ ประหยัดไฟ",
-        price: "฿3,490",
-        category: "home",
-        image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=500&fit=crop",
-        rating: 4.5,
-        reviews: 789,
-        badge: "ขายดี",
-        platform: "lazada",
-        affiliateLink: "https://www.lazada.co.th/YOUR_AFFILIATE_LINK_HERE_7"
-    },
-    {
-        id: 8,
-        title: "หม้อทอดไร้น้ำมัน Air Fryer",
-        description: "ทอดอาหารไร้น้ำมัน ความจุ 5 ลิตร ปรับอุณหภูมิได้",
-        price: "฿2,290",
-        category: "home",
-        image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&h=500&fit=crop",
-        rating: 4.6,
-        reviews: 1034,
-        badge: "",
-        platform: "lazada",
-        affiliateLink: "https://www.lazada.co.th/YOUR_AFFILIATE_LINK_HERE_8"
-    },
-
-    // ===== TIKTOK SHOP PRODUCTS =====
-    {
-        id: 9,
-        title: "เซรั่มวิตามินซี Melano CC",
-        description: "เซรั่มลดจุดด่างดำ ผิวกระจ่างใส ขนาด 20ml",
-        price: "฿450",
-        category: "beauty",
-        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=500&fit=crop",
-        rating: 4.8,
-        reviews: 2341,
-        badge: "ขายดี",
-        platform: "tiktok",
-        affiliateLink: "https://www.tiktok.com/@shop/YOUR_AFFILIATE_LINK_HERE_9"
-    },
-    {
-        id: 10,
-        title: "คุชชั่น Merrezca สูตรกันน้ำ",
-        description: "คุชชั่นเนื้อแมท ปกปิดดี กันน้ำ กันเหงื่อ SPF50+ PA+++",
-        price: "฿259",
-        category: "beauty",
-        image: "https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=500&h=500&fit=crop",
-        rating: 4.7,
-        reviews: 1876,
-        badge: "แนะนำ",
-        platform: "tiktok",
-        affiliateLink: "https://www.tiktok.com/@shop/YOUR_AFFILIATE_LINK_HERE_10"
-    },
-    {
-        id: 11,
-        title: "ลิปทิ้นท์ Rom&nd Juicy",
-        description: "ลิปทิ้นท์เกาหลี สีสวย ติดทน ไม่แห้งปาก",
-        price: "฿199",
-        category: "beauty",
-        image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&h=500&fit=crop",
-        rating: 4.9,
-        reviews: 3254,
-        badge: "ขายดี",
-        platform: "tiktok",
-        affiliateLink: "https://www.tiktok.com/@shop/YOUR_AFFILIATE_LINK_HERE_11"
-    },
-    {
-        id: 12,
-        title: "ชุดออกกำลังกาย 3 ชิ้น",
-        description: "ชุดโยคะ ผ้ายืดหยุ่น ระบายอากาศดี เซ็ต Sports Bra + เลกกิ้ง + แจ็คเก็ต",
-        price: "฿890",
-        category: "sports",
-        image: "https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=500&h=500&fit=crop",
-        rating: 4.6,
-        reviews: 567,
-        badge: "",
-        platform: "tiktok",
-        affiliateLink: "https://www.tiktok.com/@shop/YOUR_AFFILIATE_LINK_HERE_12"
-    },
-
-    // ===== MORE SHOPEE PRODUCTS =====
-    {
-        id: 13,
-        title: "Laptop ASUS TUF Gaming",
-        description: "Ryzen 7 6800H, RTX 3060, RAM 16GB, SSD 512GB, จอ 144Hz",
-        price: "฿32,990",
-        category: "electronics",
-        image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&h=500&fit=crop",
-        rating: 4.7,
-        reviews: 445,
-        badge: "แนะนำ",
-        platform: "shopee",
-        affiliateLink: "https://shope.ee/YOUR_AFFILIATE_LINK_HERE_13"
-    },
-    {
-        id: 14,
-        title: "กระเป๋าเป้ Bobby Anti-Theft",
-        description: "กระเป๋ากันขโมย USB Charging Port กันน้ำ",
-        price: "฿990",
-        category: "fashion",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop",
-        rating: 4.5,
-        reviews: 892,
-        badge: "",
-        platform: "shopee",
-        affiliateLink: "https://shope.ee/YOUR_AFFILIATE_LINK_HERE_14"
-    },
-
-    // ===== MORE LAZADA PRODUCTS =====
-    {
-        id: 15,
-        title: "ผ้าม่าน Blackout กันแสง 100%",
-        description: "ผ้าม่านกันแสง กันUV ติดตั้งง่าย หลายสี หลายขนาด",
-        price: "฿599",
-        category: "home",
-        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&h=500&fit=crop",
-        rating: 4.4,
-        reviews: 678,
-        badge: "",
-        platform: "lazada",
-        affiliateLink: "https://www.lazada.co.th/YOUR_AFFILIATE_LINK_HERE_15"
-    },
-    {
-        id: 16,
-        title: "โคมไฟอัจฉริยะ Philips Hue",
-        description: "หลอดไฟ Smart LED ปรับสีได้ 16 ล้านสี ควบคุมผ่านแอป",
-        price: "฿1,790",
-        category: "home",
-        image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=500&h=500&fit=crop",
-        rating: 4.7,
-        reviews: 234,
-        badge: "แนะนำ",
-        platform: "lazada",
-        affiliateLink: "https://www.lazada.co.th/YOUR_AFFILIATE_LINK_HERE_16"
-    },
-
-    // ===== MORE TIKTOK SHOP PRODUCTS =====
-    {
-        id: 17,
-        title: "ดัมเบลปรับน้ำหนักได้ 2-20kg",
-        description: "ดัมเบลปรับระดับ 10 ขั้น ประหยัดพื้นที่ เหมาะกับบ้าน",
-        price: "฿1,890",
-        category: "sports",
-        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&h=500&fit=crop",
-        rating: 4.6,
-        reviews: 456,
-        badge: "",
-        platform: "tiktok",
-        affiliateLink: "https://www.tiktok.com/@shop/YOUR_AFFILIATE_LINK_HERE_17"
-    },
-    {
-        id: 18,
-        title: "เสื่อโยคะ TPE พร้อมสาย",
-        description: "เสื่อโยคะหนา 6mm กันลื่น กันกระแทก มีสายสะพาย",
-        price: "฿390",
-        category: "sports",
-        image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500&h=500&fit=crop",
-        rating: 4.5,
-        reviews: 789,
-        badge: "ขายดี",
-        platform: "tiktok",
-        affiliateLink: "https://www.tiktok.com/@shop/YOUR_AFFILIATE_LINK_HERE_18"
-    },
-    {
-        id: 19,
-        title: "หนังสือ Atomic Habits",
-        description: "นิสัยเล็กๆ ที่เปลี่ยนชีวิต ฉบับภาษาไทย",
-        price: "฿350",
-        category: "books",
-        image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&h=500&fit=crop",
-        rating: 4.9,
-        reviews: 1234,
-        badge: "แนะนำ",
-        platform: "tiktok",
-        affiliateLink: "https://www.tiktok.com/@shop/YOUR_AFFILIATE_LINK_HERE_19"
-    },
-    {
-        id: 20,
-        title: "คอร์สออนไลน์ Python Programming",
-        description: "เรียนเขียนโปรแกรม Python เบื้องต้น-ขั้นสูง 50+ ชั่วโมง",
-        price: "฿1,990",
-        category: "books",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=500&fit=crop",
-        rating: 4.8,
-        reviews: 567,
-        badge: "แนะนำ",
-        platform: "shopee",
-        affiliateLink: "https://shope.ee/YOUR_AFFILIATE_LINK_HERE_20"
+// Load products from JSON file
+async function loadProducts() {
+    try {
+        const response = await fetch('products.json');
+        if (!response.ok) {
+            throw new Error('Failed to load products');
+        }
+        const data = await response.json();
+        productsData = data.products;
+        
+        // Initialize displays after products are loaded
+        displayProducts();
+        displayBestSellers();
+        generateProductStructuredData();
+        
+        console.log('✅ Products loaded successfully:', productsData.length, 'items');
+    } catch (error) {
+        console.error('❌ Error loading products:', error);
+        // Fallback: Display error message
+        productsGrid.innerHTML = '<div style="text-align: center; padding: 2rem; color: red;">ไม่สามารถโหลดข้อมูลสินค้าได้</div>';
+        bestSellersGrid.innerHTML = '<div style="text-align: center; padding: 2rem; color: red;">ไม่สามารถโหลดข้อมูลสินค้าได้</div>';
     }
-];
+}
 
 // ===== Navbar Functionality =====
 const navbar = document.querySelector('.navbar');
@@ -408,7 +161,7 @@ function getCategoryName(category) {
         'home': 'บ้านและสวน',
         'beauty': 'ความงาม',
         'sports': 'กีฬา',
-        'books': 'หนังสือและสื่อ'
+        'books': 'อาหารและเครื่องดื่ม'
     };
     return categoryNames[category] || category;
 }
@@ -442,9 +195,6 @@ function displayProducts(categoryFilter = 'all', platformFilter = 'all') {
         }, index * 50);
     });
 }
-
-// Initialize products display
-displayProducts();
 
 // ===== Best Sellers Display =====
 const bestSellersGrid = document.getElementById('bestSellersGrid');
@@ -483,8 +233,8 @@ function displayBestSellers() {
     });
 }
 
-// Initialize best sellers
-displayBestSellers();
+// Initialize products: Load from JSON file
+loadProducts();
 
 // ===== Generate Structured Data (JSON-LD) for SEO =====
 function generateProductStructuredData() {
@@ -537,9 +287,6 @@ function generateProductStructuredData() {
     }
     structuredDataScript.textContent = JSON.stringify(structuredData);
 }
-
-// Generate structured data on page load
-generateProductStructuredData();
 
 // ===== SEO: Update Page Title and Meta Description Based on Filters =====
 function updateSEOMetaTags(categoryFilter, platformFilter) {
@@ -630,9 +377,23 @@ categoryCards.forEach(card => {
 
 // ===== Contact Form =====
 const contactForm = document.getElementById('contactForm');
+const inquiryTypeEl = document.getElementById('inquiryType');
+const ctaListProduct = document.getElementById('ctaListProduct');
+const ctaPartner = document.getElementById('ctaPartner');
+const ctaAdvertise = document.getElementById('ctaAdvertise');
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const inquiryType = (inquiryTypeEl && inquiryTypeEl.value) ? inquiryTypeEl.value : 'general';
+    try {
+        gtag('event', 'contact_submit', {
+            'event_category': 'Engagement',
+            'event_label': 'contact_form',
+            'inquiry_type': inquiryType
+        });
+    } catch (err) {
+        // no-op
+    }
     
     // Show success message (you can customize this)
     alert('ขอบคุณสำหรับข้อความของคุณ! เราจะติดต่อกลับโดยเร็วที่สุด');
@@ -640,6 +401,40 @@ contactForm.addEventListener('submit', (e) => {
     // Reset form
     contactForm.reset();
 });
+
+// Partner/Vendor CTA tracking
+if (ctaListProduct) {
+    ctaListProduct.addEventListener('click', () => {
+        try {
+            gtag('event', 'partner_interest', {
+                'event_category': 'Engagement',
+                'event_label': 'list_product'
+            });
+        } catch (err) {}
+    });
+}
+
+if (ctaPartner) {
+    ctaPartner.addEventListener('click', () => {
+        try {
+            gtag('event', 'partner_interest', {
+                'event_category': 'Engagement',
+                'event_label': 'partner_signup'
+            });
+        } catch (err) {}
+    });
+}
+
+if (ctaAdvertise) {
+    ctaAdvertise.addEventListener('click', () => {
+        try {
+            gtag('event', 'partner_interest', {
+                'event_category': 'Engagement',
+                'event_label': 'advertising'
+            });
+        } catch (err) {}
+    });
+}
 
 // ===== Scroll to Top Button =====
 const scrollTopBtn = document.getElementById('scrollTop');
