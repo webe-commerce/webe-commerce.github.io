@@ -31,6 +31,56 @@ async function loadProducts() {
     }
 }
 
+// ===== Disclaimer Banner =====
+const disclaimerBanner = document.getElementById('disclaimerBanner');
+const disclaimerClose = document.getElementById('disclaimerClose');
+
+// Check if user has previously closed the banner
+if (disclaimerBanner && disclaimerClose) {
+    const bannerClosed = localStorage.getItem('disclaimerBannerClosed');
+    
+    if (bannerClosed === 'true') {
+        disclaimerBanner.classList.add('hidden');
+        adjustNavbarPosition();
+    } else {
+        adjustNavbarPosition();
+    }
+    
+    // Close button functionality
+    disclaimerClose.addEventListener('click', () => {
+        disclaimerBanner.classList.add('hidden');
+        localStorage.setItem('disclaimerBannerClosed', 'true');
+        adjustNavbarPosition();
+        
+        // Track banner close event
+        try {
+            gtag('event', 'disclaimer_banner_closed', {
+                'event_category': 'Engagement',
+                'event_label': 'user_dismissed'
+            });
+        } catch (err) {}
+    });
+}
+
+// Function to adjust navbar position based on banner visibility
+function adjustNavbarPosition() {
+    const navbar = document.querySelector('.navbar');
+    const banner = document.getElementById('disclaimerBanner');
+    
+    if (navbar && banner) {
+        if (banner.classList.contains('hidden')) {
+            navbar.style.top = '0';
+            navbar.style.marginTop = '0';
+        } else {
+            const bannerHeight = banner.offsetHeight;
+            navbar.style.top = `${bannerHeight}px`;
+        }
+    }
+}
+
+// Adjust on window resize
+window.addEventListener('resize', adjustNavbarPosition);
+
 // ===== Navbar Functionality =====
 const navbar = document.querySelector('.navbar');
 const hamburger = document.getElementById('hamburger');
