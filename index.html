@@ -589,37 +589,50 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <form class="contact-form-modern" id="contactForm">
+                <!-- Line Official Account -->
+                <div class="contact-form-modern line-official-section">
                     <h3 class="form-title">ส่งข้อความหาเรา</h3>
-                    <p class="form-subtitle">กรอกแบบฟอร์มด้านล่าง เราจะติดต่อกลับโดยเร็วที่สุด</p>
-                    <div class="form-group">
-                        <label for="inquiryType">ประเภทการติดต่อ</label>
-                        <select id="inquiryType" required>
-                            <option value="general">สอบถามทั่วไป</option>
-                            <option value="list">ลงสินค้า / ร่วมขาย</option>
-                            <option value="partner">สมัครเป็น Partner</option>
-                            <option value="ads">ซื้อโฆษณา / โปรโมตสินค้า</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="contactName">ชื่อของคุณ</label>
-                            <input type="text" id="contactName" placeholder="กรุณากรอกชื่อ" required>
+                    <p class="form-subtitle">ติดต่อเราผ่าน Line Official Account ของ HLCorp ได้เลย!</p>
+                    
+                    <div class="line-official-content">
+                        <div class="line-official-icon">
+                            <i class="fab fa-line"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="contactEmail">อีเมล</label>
-                            <input type="email" id="contactEmail" placeholder="your@email.com" required>
+                        <h4>HLCorp Line Official Account</h4>
+                        <p class="line-description">แอด Line เพื่อสอบถามข้อมูล ลงสินค้า ซื้อโฆษณา หรือสมัครเป็น Partner</p>
+                        
+                        <div class="line-buttons">
+                            <a href="https://line.me/R/ti/p/@542immfg" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large line-btn" id="lineOfficialBtn">
+                                <i class="fab fa-line"></i> เพิ่มเพื่อน Line Official Account
+                            </a>
+                            <a href="line://ti/p/@542immfg" class="btn btn-secondary btn-large line-btn-mobile" id="lineMobileBtn">
+                                <i class="fab fa-line"></i> เปิดในแอป Line
+                            </a>
+                        </div>
+                        
+                        <div class="line-info">
+                            <p><strong>Line ID:</strong> @542immfg</p>
+                            <p class="line-note">หรือสแกน QR Code ด้านล่างเพื่อเพิ่มเพื่อน</p>
+                        </div>
+                        
+                        <div class="line-qr-placeholder">
+                            <div class="qr-code-container">
+                                <img src="images/line-oa-qrcode.png" 
+                                     alt="Line Official Account QR Code - HLCorp" 
+                                     class="qr-code-image" 
+                                     loading="lazy"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div class="qr-code-fallback" style="display: none;">
+                                    <div class="qr-code-placeholder-icon">
+                                        <i class="fab fa-line"></i>
+                                    </div>
+                                    <p class="qr-code-fallback-text">กรุณาอัปโหลด QR Code<br>ไปที่ <code>images/line-oa-qrcode.png</code></p>
+                                </div>
+                                <p class="qr-code-label">สแกน QR Code เพื่อเพิ่มเพื่อน HLCorp</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="contactMessage">ข้อความ</label>
-                        <textarea id="contactMessage" placeholder="กรุณากรอกข้อความที่ต้องการติดต่อ..." rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-large form-submit-btn">
-                        <i class="fas fa-paper-plane"></i> ส่งข้อความ
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
     </section>

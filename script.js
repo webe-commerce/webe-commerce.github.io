@@ -375,32 +375,37 @@ categoryCards.forEach(card => {
     });
 });
 
-// ===== Contact Form =====
-const contactForm = document.getElementById('contactForm');
-const inquiryTypeEl = document.getElementById('inquiryType');
+// ===== Line Official Account =====
+const lineOfficialBtn = document.getElementById('lineOfficialBtn');
+const lineMobileBtn = document.getElementById('lineMobileBtn');
 const ctaListProduct = document.getElementById('ctaListProduct');
 const ctaPartner = document.getElementById('ctaPartner');
 const ctaAdvertise = document.getElementById('ctaAdvertise');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const inquiryType = (inquiryTypeEl && inquiryTypeEl.value) ? inquiryTypeEl.value : 'general';
-    try {
-        gtag('event', 'contact_submit', {
-            'event_category': 'Engagement',
-            'event_label': 'contact_form',
-            'inquiry_type': inquiryType
-        });
-    } catch (err) {
-        // no-op
-    }
-    
-    // Show success message (you can customize this)
-    alert('ขอบคุณสำหรับข้อความของคุณ! เราจะติดต่อกลับโดยเร็วที่สุด');
-    
-    // Reset form
-    contactForm.reset();
-});
+// Line Official Account tracking
+if (lineOfficialBtn) {
+    lineOfficialBtn.addEventListener('click', () => {
+        try {
+            gtag('event', 'line_official_click', {
+                'event_category': 'Engagement',
+                'event_label': 'line_official_account',
+                'method': 'web'
+            });
+        } catch (err) {}
+    });
+}
+
+if (lineMobileBtn) {
+    lineMobileBtn.addEventListener('click', () => {
+        try {
+            gtag('event', 'line_official_click', {
+                'event_category': 'Engagement',
+                'event_label': 'line_official_account',
+                'method': 'mobile_app'
+            });
+        } catch (err) {}
+    });
+}
 
 // Partner/Vendor CTA tracking
 if (ctaListProduct) {
